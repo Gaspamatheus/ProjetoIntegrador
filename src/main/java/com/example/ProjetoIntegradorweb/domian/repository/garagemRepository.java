@@ -16,4 +16,6 @@ public interface garagemRepository {
     boolean existsByClienteIdAndAnoAndMesPago(Integer clienteId, Integer ano, Integer mesPago);
 
     boolean existsByClienteId(Integer clienteId);
+
+    garagem save(garagem g);
 }
