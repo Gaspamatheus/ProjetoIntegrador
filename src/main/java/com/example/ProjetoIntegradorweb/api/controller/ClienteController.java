@@ -68,7 +68,7 @@ public class ClienteController{
             @PathVariable Integer id,
             @Valid@RequestBody ClienteRequestDTO dto
     ) {
-        cliente cliente = repository.findById(Long.valueOf(id))
+        cliente cliente = repository.findById(Math.toIntExact(Long.valueOf(id)))
                 .orElseThrow(()->new ResponseStatusException(NOT_FOUND, "cliente não encontrado"));
         ClienteMapper.updateEntity(dto, cliente);
         cliente update = repository.save(cliente);
@@ -79,7 +79,7 @@ public class ClienteController{
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         try {
-            repository.deleteById(Long.valueOf(id));
+            repository.deleteById(Math.toIntExact(Long.valueOf(id)));
         } catch (EmptyResultDataAccessException ex) {
             throw new ResponseStatusException(NOT_FOUND, "cliente não encontrado");
         }
