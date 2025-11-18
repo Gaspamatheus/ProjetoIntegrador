@@ -31,30 +31,36 @@ public class cliente {
     }
 
     public Integer getId() {
+
         return id;
     }
 
     public void setId(Integer id) {
+
         this.id = id;
     }
 
     public String getNome() {
+
         return nome;
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
 
     public BigDecimal getValor_pago() {
+
         return valor_pago;
     }
 
     public void setValor_pago(BigDecimal valor_pago) {
+
         this.valor_pago = valor_pago;
     }
 
-    //igualdade por ID (jeito certo para hibernate proxies
+    //igualdade por ID (jeito certo para hibernate proxies)
     @Override
     public boolean equals (Object o) {
         if(this == o)return true;
@@ -64,11 +70,14 @@ public class cliente {
 
     @Override
     public int hashCode(){
-        return getClass().hashCode();
+        return getClass().
+                hashCode();
     }
 
     @Override
     public String toString() {
-        return "cliente{id=%d, nome='%s', valorPago=%s}".formatted(id, nome, valor_pago);
+
+        return "cliente{id=%d, nome='%s', valorPago=%s}"
+                .formatted(id, nome, valor_pago);
     }
 }

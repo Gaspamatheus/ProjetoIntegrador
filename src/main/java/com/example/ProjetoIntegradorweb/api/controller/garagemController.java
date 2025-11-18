@@ -2,7 +2,7 @@ package com.example.ProjetoIntegradorweb.api.controller;
 
 import com.example.ProjetoIntegradorweb.api.dto.garagemDTO;
 import com.example.ProjetoIntegradorweb.api.dto.garagemRequestDTO;
-import com.example.ProjetoIntegradorweb.domian.service.garagemService;
+import com.example.ProjetoIntegradorweb.domian.service.GaragemService;
 
 import jakarta.validation.Valid;
 
@@ -19,7 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping(path = "/api/garagens")
 public class garagemController {
     @Autowired
-    private final garagemService service;
+    private final garagemservice service;
 
     public garagemController(garagemService service) {
         this.service = service;
@@ -44,7 +44,7 @@ public class garagemController {
 
     public ResponseEntity<List<garagemDTO>> listar(@RequestParam(required = false) Integer clienteId) {
         List<garagemDTO> lista = (clienteId != null)
-                ? service.listarPorCliente(clienteId)
+                ? service.listarPorcliente(clienteId)
                 : service.listar();
         return ResponseEntity.ok(lista);
     }
